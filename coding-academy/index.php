@@ -134,10 +134,8 @@ if (!isset($recent_blogs)) {
     .program-content { padding: 30px; }
     .program-number { font-size: 3rem; font-weight: 800; color: rgba(234, 88, 12, 0.1); position: absolute; top: 20px; right: 20px; }
 
-    /* ================= 
-     US ================= */
-    .
-    -section { padding: 100px 0; }
+    /* ================= ABOUT US ================= */
+    .about-section { padding: 100px 0; }
     .pillar-list { list-style: none; padding: 0; }
     .pillar-list li { position: relative; padding-left: 30px; margin-bottom: 15px; font-weight: 500; color: var(--sk-blue);}
     .pillar-list li::before {
@@ -157,7 +155,6 @@ if (!isset($recent_blogs)) {
 
     /* ================= PARTNERS ================= */
     .partner-logo-wrapper {
-          
         height: 120px;
         padding: 10px;
         background-color: #ffffff; 
@@ -178,59 +175,58 @@ if (!isset($recent_blogs)) {
         .partner-logo-wrapper { width: 160px; height: 90px; }
     }
     
-    
     /* ================= PARTNER MARQUEE ================= */
-.partner-marquee-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-}
+    .partner-marquee-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 20px 0;
+    }
 
-/* Fading edges effect (optional but looks very premium) */
-.partner-marquee-container::before,
-.partner-marquee-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-}
-.partner-marquee-container::before {
-    left: 0;
-    background: linear-gradient(to right, white 0%, transparent 100%);
-}
-.partner-marquee-container::after {
-    right: 0;
-    background: linear-gradient(to left, white 0%, transparent 100%);
-}
+    /* Fading edges effect */
+    .partner-marquee-container::before,
+    .partner-marquee-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .partner-marquee-container::before {
+        left: 0;
+        background: linear-gradient(to right, white 0%, transparent 100%);
+    }
+    .partner-marquee-container::after {
+        right: 0;
+        background: linear-gradient(to left, white 0%, transparent 100%);
+    }
 
-.partner-marquee-track {
-    display: flex;
-    gap: 3rem; /* Space between logos */
-    width: max-content;
-    animation: marquee-scroll 30s linear infinite;
-}
+    .partner-marquee-track {
+        display: flex;
+        gap: 3rem; 
+        width: max-content;
+        animation: marquee-scroll 30s linear infinite;
+    }
 
-/* Pause the scrolling when a user hovers over a logo */
-.partner-marquee-track:hover {
-    animation-play-state: paused;
-}
+    /* Pause the scrolling when a user hovers over a logo */
+    .partner-marquee-track:hover {
+        animation-play-state: paused;
+    }
 
-@keyframes marquee-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-    /* Scrolls exactly half the track width, which creates the perfect infinite loop since we duplicated the items */
-}
+    @keyframes marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } 
+    }
 
-/* Ensure wrappers don't shrink inside the flex track */
-.partner-marquee-track .partner-logo-wrapper {
-    flex-shrink: 0;
-    margin: 0;
-}
-/* ================= WHY CHOOSE US - MODERNIZED ================= */
+    /* Ensure wrappers don't shrink inside the flex track */
+    .partner-marquee-track .partner-logo-wrapper {
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    /* ================= WHY CHOOSE US - MODERNIZED ================= */
     .features-section { 
         padding: 100px 0; 
         background: var(--sk-blue); 
@@ -268,7 +264,7 @@ if (!isset($recent_blogs)) {
         width: 60px;
         height: 60px;
         border-radius: 12px;
-        background: rgba(234, 88, 12, 0.1); /* Soft orange background */
+        background: rgba(234, 88, 12, 0.1); 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -285,7 +281,7 @@ if (!isset($recent_blogs)) {
     .feature-card:hover {
         transform: translateY(-10px);
         background: rgba(255, 255, 255, 0.06);
-        border-color: rgba(234, 88, 12, 0.3); /* Soft orange border on hover */
+        border-color: rgba(234, 88, 12, 0.3); 
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 20px rgba(234, 88, 12, 0.1);
     }
 
@@ -306,12 +302,13 @@ if (!isset($recent_blogs)) {
     }
 
     .feature-card p {
-        color: #94a3b8; /* Slightly brighter than text-white-50 for better readability */
+        color: #94a3b8; 
         font-size: 0.95rem;
         line-height: 1.7;
         margin-bottom: 0;
     }
-     /* ================= NEWSLETTER & FOOTER ================= */
+
+    /* ================= NEWSLETTER & FOOTER ================= */
     .footer-wrapper {
         background-color: var(--sk-blue);
         position: relative;
@@ -326,7 +323,7 @@ if (!isset($recent_blogs)) {
         top: -80px; 
         left: 0; 
         right: 0; 
-        margin: 0 auto; /* Safely centers the box without pushing it off-screen */
+        margin: 0 auto; 
         width: 90%; 
         max-width: 1100px;
         background: #ffffff;
@@ -339,7 +336,7 @@ if (!isset($recent_blogs)) {
         justify-content: space-between;
         gap: 20px;
         z-index: 10;
-        box-sizing: border-box; /* Forces padding to stay inside the box */
+        box-sizing: border-box;
     }
     
     .newsletter-box p { 
@@ -362,7 +359,7 @@ if (!isset($recent_blogs)) {
         border: 1px solid #edf2f7; 
         padding: 12px 15px; 
         width: 100%; 
-        max-width: 250px; /* Prevents inputs from taking up too much space */
+        max-width: 250px; 
         border-radius: 4px; 
         outline: none; 
     }
@@ -376,7 +373,7 @@ if (!isset($recent_blogs)) {
         font-weight: 700; 
         white-space: nowrap; 
         transition: 0.3s;
-        flex-shrink: 0; /* Forces the button to never shrink or disappear */
+        flex-shrink: 0; 
         display: flex;
         align-items: center;
     }
@@ -384,6 +381,7 @@ if (!isset($recent_blogs)) {
     .newsletter-form button:hover { 
         background: var(--sk-orange-hover); 
     }
+
     /* ================= MOBILE RESPONSIVE ================= */
     @media (max-width: 991px) {
         .hero h1 { font-size: 3rem; }
@@ -392,7 +390,6 @@ if (!isset($recent_blogs)) {
         .sk-grid-wrapper { grid-template-columns: 1fr; height: auto; }
         .grid-box { height: 300px; }
         
-        /* Fixed mobile newsletter sizing */
         .newsletter-box { 
             flex-direction: column; 
             text-align: center; 
@@ -401,10 +398,7 @@ if (!isset($recent_blogs)) {
         }
         .newsletter-box p { max-width: 100%; margin-bottom: 10px; }
         .newsletter-form { width: 100%; flex-direction: column; }
-        .newsletter-form input, .newsletter-form button { width: 100%; }
-    }
-    @media (max-width: 768px) {
-        .partner-logo-wrapper { width: 160px; height: 90px; }
+        .newsletter-form input, .newsletter-form button { width: 100%; max-width: 100%; }
     }
 </style>
 
@@ -436,7 +430,6 @@ if (!isset($recent_blogs)) {
         const videoSources = ["videos/video1.mp4", "videos/video2.mp4", "videos/video3.mp4"];
         let currentVideoIndex = 0;
 
-        // When the current video finishes, play the next one
         if (video) {
             video.addEventListener('ended', function() {
                 currentVideoIndex++;
@@ -482,7 +475,7 @@ if (!isset($recent_blogs)) {
                 </div>
             <?php 
                 $i++; 
-                $delay += 150; // Increase delay by 150ms for the next card
+                $delay += 150; 
                 endforeach; 
             else: 
             ?>
@@ -520,11 +513,12 @@ if (!isset($recent_blogs)) {
         </div>
     </div>
 </section>
-<section class="">
+
+<section class="features-section">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <span style="color: var(--sk-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Why Choose Us</span>
-            <h2 class="mt-2" style="font-size: 2.5rem; color: #ffffff;"><font color="#042a41">Reasons to Join Our Academy</font></h2>
+            <h2 class="mt-2" style="font-size: 2.5rem; color: #ffffff;">Reasons to Join Our Academy</h2>
             <p class="mt-3" style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Discover what makes us the perfect choice for your educational journey into the world of tech.</p>
         </div>
 
@@ -538,7 +532,7 @@ if (!isset($recent_blogs)) {
                             <polyline points="14 8 16 10 14 12"></polyline>
                         </svg>
                     </div>
-                    <h4><font color="#042a41">Industry-Relevant Curriculum</font></h4>
+                    <h4>Industry-Relevant Curriculum</h4>
                     <p>Cutting-edge courses designed with industry experts to ensure you learn what matters most in today's tech landscape.</p>
                 </div>
             </div>
@@ -552,7 +546,7 @@ if (!isset($recent_blogs)) {
                             <line x1="12" y1="17" x2="12" y2="21"></line>
                         </svg>
                     </div>
-                    <h4><font color="#042a41">State-of-the-Art Facilities</font></h4>
+                    <h4>State-of-the-Art Facilities</h4>
                     <p>Modern learning spaces equipped with the latest technology to provide the best educational experience.</p>
                 </div>
             </div>
@@ -564,7 +558,7 @@ if (!isset($recent_blogs)) {
                             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                         </svg>
                     </div>
-                    <h4><font color="#042a41">Practical Approach</font></h4>
+                    <h4>Practical Approach</h4>
                     <p>Hands-on learning with real-world projects that prepare you for immediate success in your career.</p>
                 </div>
             </div>
@@ -579,7 +573,7 @@ if (!isset($recent_blogs)) {
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h4><font color="#042a41">Industry Partnerships</font></h4>
+                    <h4>Industry Partnerships</h4>
                     <p>Strong connections with leading companies providing internships, mentorship, and career opportunities.</p>
                 </div>
             </div>
@@ -592,7 +586,7 @@ if (!isset($recent_blogs)) {
                             <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
                     </div>
-                    <h4><font color="#042a41">Career Pathways</font></h4>
+                    <h4>Career Pathways</h4>
                     <p>Comprehensive support and guidance to help you navigate your journey from student to professional.</p>
                 </div>
             </div>
@@ -646,9 +640,10 @@ if (!isset($recent_blogs)) {
         </div>
     </div>
 </section>
+
 <section class="py-5 bg-white border-top w-100" id="partners">
     <div class="container-fluid py-5 text-center px-0"> <div data-aos="fade-up">
-            <span class="sk-subtitle mb-1">Collaborations</span>
+            <span class="sk-subtitle mb-1" style="color: var(--sk-orange); font-weight: 600;">Collaborations</span>
             <h2 class="sk-title mb-5 mt-0">Our Partners</h2>
         </div>
         
@@ -668,7 +663,7 @@ if (!isset($recent_blogs)) {
                            title="<?= htmlspecialchars($p['name']) ?>" data-bs-toggle="tooltip" 
                            data-bs-placement="top" 
                            data-bs-title="<?= htmlspecialchars($p['name']) ?>">
-                            
+                           
                             <img src="../admin/<?= htmlspecialchars($p['logo_path']); ?>" 
                                  alt="<?= htmlspecialchars($p['name']) ?>" 
                                  title="<?= htmlspecialchars($p['name']) ?>" class="partner-img">
@@ -685,8 +680,7 @@ if (!isset($recent_blogs)) {
     </div>
 </section>
 
-
-<div class="footer-wrapper" id="newsletter" id="contact">
+<div class="footer-wrapper" id="newsletter">
     <div class="newsletter-box" style="flex-wrap: wrap;" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         <p>Signup our newsletter to get update information, news, insight or promotions.</p>
         
@@ -756,40 +750,6 @@ if (!isset($recent_blogs)) {
     <?php endif; ?>
 </div>
 
-<!--
-<div style="background: var(--sk-blue); color: white; padding: 60px 0;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <h4 class="text-white mb-4">Have a Questions?</h4>
-                <p class="text-white-50 mb-2">KG 643 St, Kimihurura, Rugando</p>
-                <p class="text-white-50 mb-2">+250 791 823 651</p>
-                <p class="text-white-50">ngacodingacademy@nga.ac.rw</p>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <h4 class="text-white mb-4">Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
-                    <li><a href="#programs" class="text-white-50 text-decoration-none">Programs</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none">Student Projects</a></li>
-                    <li><a href="https://nga.ac.rw/events" class="text-white-50 text-decoration-none">Our Events</a></li>
-                    <li><a href="student_register.php" class="text-white-50 text-decoration-none">Online Registration</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                <h4 class="text-white mb-4">Important Links</h4>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white-50 text-decoration-none">Staff / Student Login</a></li>
-                    <li><a href="#" class="text-white-50 text-decoration-none">Staff Mail Portal</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-top border-secondary pt-4 mt-4 text-center" data-aos="fade-in" data-aos-delay="400">
-            <p class="text-white-50 mb-0">© 2026 NGA-Coding Academy. All rights reserved.</p>
-        </div>
-    </div>
-</div>-->
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -803,7 +763,7 @@ if (!isset($recent_blogs)) {
         AOS.init({
             duration: 800,      // How long the animation takes (in ms)
             offset: 100,        // Distance from bottom of screen before triggering
-            once: true,         // Whether animation should happen only once - while scrolling down
+            once: true,         // Whether animation should happen only once
             easing: 'ease-out-cubic' // Smooth easing function
         });
     });
