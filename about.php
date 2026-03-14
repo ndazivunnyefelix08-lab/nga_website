@@ -1,16 +1,6 @@
 <?php
 include 'include/header.php';
-
-// ---- DATABASE CONNECTION ----
-$host = "localhost";
-$user = "ngarw_spes";
-$pass = "ngarw_spes";
-$dbname = "ngarw_spes";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) { 
-    die("Connection failed: " . $conn->connect_error); 
-}
+include 'config/db.php'; // Included secure AWS database connection
 
 // ---- GET ID FROM URL ----
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -91,4 +81,8 @@ if ($id > 0) {
 </body>
 </html>
 
-<?php $conn->close(); ?>
+<?php 
+if (isset($conn)) {
+    $conn->close(); 
+}
+?>
