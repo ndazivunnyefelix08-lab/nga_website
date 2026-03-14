@@ -1,10 +1,16 @@
 <?php
-// Note: Changed the 4th parameter from "web" to "mysql"
-$conn = new mysqli("web.c4r4q0g4u6vz.us-east-1.rds.amazonaws.com", "web", "Kigali@@12345!!", "mysql");
+$host = "web.c4r4q0g4u6vz.us-east-1.rds.amazonaws.com";
+$user = "web";
+$password = "nga12345";
+$database = "mysql";
+$port = 3306;
 
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($host,$user,$password,$database,$port);
+
+if(!$conn){
+    die("Database connection failed: ".mysqli_connect_error());
 }
 
-echo "Connected successfully to AWS RDS!";
+echo "Connected successfully";
+
 ?>
