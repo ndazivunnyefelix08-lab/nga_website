@@ -459,7 +459,7 @@ if (isset($conn) && is_object($conn)) {
     <div class="hero-overlay"></div>
     
     <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
-        <h1><span class="sk-text-highlight">Transformative</span><br>Education, Endless<br>Opportunities.</h1>
+        <h5><span class="sk-text-highlight">Transformative</span><br>Education, Endless<br>Opportunities.</h5>
         <p><?= htmlspecialchars($settings['hero_subtitle'] ?? 'Rwanda’s Private Centre of Excellence in Software Programming, Embedded Systems & Robotics'); ?></p>
     </div>
     
@@ -656,17 +656,14 @@ if (isset($conn) && is_object($conn)) {
         </div>
     </div>
 </section>
-<?php
-// Use the central database connection from db.php (which should already be included via header.php)
-$data = [];
 
-// Check if the central $conn variable exists and is working
-if (isset($conn)) {
-    $result = mysqli_query($conn, "SELECT * FROM students_history LIMIT 3");
-    
-    if ($result) {
-        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    }
+<?php
+// Note: We leave this specific DB connection as it was, but gracefully check it
+//$history_conn = mysqli_connect("localhost", "root", "", "nga_deployment");
+$data = [];
+if($history_conn) {
+    $result = mysqli_query($history_conn, "SELECT * FROM students_history LIMIT 3");
+    if($result) $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 ?>
 <?php if(count($data) > 0): ?>
