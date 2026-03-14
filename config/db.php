@@ -5,7 +5,7 @@ $host = "web.c4r4q0g4u6vz.us-east-1.rds.amazonaws.com";
 $user = "admin"; 
 // 3. Password MUST be your master password for the admin user
 $password = "Felix12345!"; 
-$database = "mysql";
+$database = "nga_db";
 $port = 3306;
 $conn = mysqli_connect($host, $user, $password, $database, $port);
 if (!$conn) {

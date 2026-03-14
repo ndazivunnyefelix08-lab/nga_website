@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `about_sections`
 --
-CREATE DATABASE IF NOT EXISTS mysql;
-USE mysql;
+CREATE DATABASE IF NOT EXISTS nga_db;
+USE nga_db;
 CREATE TABLE `about_sections` (
   `id` int NOT NULL,
   `title` varchar(100) DEFAULT NULL,
