@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 10.123.0.150:3306
--- Generation Time: Mar 11, 2026 at 02:38 PM
+-- Generation Time: Mar 11, 2026 at 03:13 PM
 -- Server version: 8.4.7
 -- PHP Version: 8.2.30
 
@@ -26,7 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `about_sections`
 --
-
+CREATE DATABASE IF NOT EXISTS nga_db;
+USE nga_db;
 CREATE TABLE `about_sections` (
   `id` int NOT NULL,
   `title` varchar(100) DEFAULT NULL,
