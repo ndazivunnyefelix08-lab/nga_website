@@ -694,8 +694,6 @@ if (isset($conn) && is_object($conn)) {
 </section>
 
 
-<?php endif; ?>
-
 <section class="py-5 bg-white border-top w-100" id="partners">
     <div class="container-fluid py-5 text-center px-0"> 
         <div data-aos="fade-up">
