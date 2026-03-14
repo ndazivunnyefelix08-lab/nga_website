@@ -204,6 +204,9 @@ if (isset($conn)) {
         <div class="login-wrapper">
             <div class="login-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 
+                <div class="login-icon-box" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
                
                 <h3 data-aos="fade-up" data-aos-delay="500">Admin Portal</h3>
                 <p data-aos="fade-up" data-aos-delay="600">Secure access to the management dashboard.</p>
@@ -236,7 +239,7 @@ if (isset($conn)) {
                     </div>
 
                     <div class="text-end mb-4" data-aos="fade-left" data-aos-delay="900">
-                        <a href="forgot_password.php" class="text-decoration-none fw-bold small" style="color: var(--sk-orange); transition: 0.3s;" onmouseover="this.style.color='var(--sk-orange-hover)'" onmouseout="this.style.color='var(--sk-orange)'">
+                        <a href="forgot_password.php" class="text-decoration-none fw-bold small" style="color: var(--sk-orange); transition: 0.3s;" onMouseOver="this.style.color='var(--sk-orange-hover)'" onMouseOut="this.style.color='var(--sk-orange)'">
                             Forgot Password?
                         </a>
                     </div>
