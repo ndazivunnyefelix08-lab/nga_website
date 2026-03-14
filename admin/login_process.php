@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // 1. Fetch user where 'username' matches the input email
-    $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM admin_users WHERE USERNAME = ?");
     $stmt->bind_param("s", $login_input);
     $stmt->execute();
     $result = $stmt->get_result();

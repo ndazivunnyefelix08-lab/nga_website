@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
 
     // Check if email exists in username column
-    $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM admin_users WHERE USERNAME = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
