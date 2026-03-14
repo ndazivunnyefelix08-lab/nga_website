@@ -450,6 +450,41 @@ if (isset($conn) && is_object($conn)) {
         flex-shrink: 0;
         margin: 0;
     }
+	/* Style for the main heading */
+.fantastic-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.2rem;     /* Large, modern size */
+    font-weight: 800;      /* Extra bold */
+    line-height: 1.15;     /* Tight line spacing for a clean look */
+    color: var(--sk-blue); /* Uses your dark blue color */
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+}
+
+/* Style for the highlighted word */
+.sk-text-highlight {
+    /* Create a beautiful orange gradient */
+    background: linear-gradient(135deg, var(--sk-orange) 0%, #ff8a3d 100%);
+    
+    /* Clip the background to the text shape */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+    
+    /* Optional: Adds a very subtle shadow behind the gradient */
+    filter: drop-shadow(0px 4px 10px rgba(234, 88, 12, 0.15));
+    
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Make it responsive for mobile phones */
+@media (max-width: 768px) {
+    .fantastic-heading {
+        font-size: 2.2rem;
+    }
+}
 </style>
 
 <section class="hero">
@@ -459,7 +494,13 @@ if (isset($conn) && is_object($conn)) {
     <div class="hero-overlay"></div>
     
     <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
-        <h3><span class="sk-text-highlight">Transformative</span><br>Education, Endless<br>Opportunities.</h3>
+	
+        <h3 class="fantastic-heading">
+    <span class="sk-text-highlight">Transformative</span><br>
+    Education, Endless<br>
+    Opportunities.
+</h3>
+		
         <p><?= htmlspecialchars($settings['hero_subtitle'] ?? 'Rwanda’s Private Centre of Excellence in Software Programming, Embedded Systems & Robotics'); ?></p>
     </div>
     
