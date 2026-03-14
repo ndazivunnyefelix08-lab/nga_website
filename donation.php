@@ -1,4 +1,7 @@
-<?php include 'include/header.php'; ?>
+<?php 
+include 'include/header.php'; 
+include 'config/db.php'; // Include your AWS database connection
+?>
 <?php
 $success = "";
 $error = "";
@@ -19,28 +22,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($amount < 1 || $amount > 10000000000) {
         $error = "Donation amount must be greater than $1 .";
     } else {
-        $host = "localhost";
-        $dbname = "ngarw_spes";
-        $user = "ngarw_spes";
-        $pass = "ngarw_spes";
-
-        try {
-            $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $stmt = $pdo->prepare("INSERT INTO donations (name, email, phone, amount, recurring) VALUES (:name, :email, :phone, :amount, :recurring)");
-            $stmt->execute([
-                ':name' => $name,
-                ':email' => $email,
-                ':phone' => $phone,
-                ':amount' => $amount,
-                ':recurring' => $recurring
-            ]);
-
-            // After saving to DB, send emails
-$to = "faustin.niyitegeka@gmail.com";
-$subject = "New Donation Received";
-$message = "
+        
+        // Ensure the connection from config/db.php is active
+        if (isset($conn)) {
+            
+            // Prepare the MySQLi statement to prevent SQL injection
+            $stmt = $conn->prepare("INSERT INTO donations (name, email, phone, amount, recurring) VALUES (?, ?, ?, ?, ?)");
+            
+            if ($stmt) {
+                // Bind the parameters (s = string, i = integer)
+                $stmt->bind_param("sssss", $name, $email, $phone, $amount, $recurring);
+                
+                if ($stmt->execute()) {
+                    // After saving to DB, send emails
+                    $to = "faustin.niyitegeka@gmail.com";
+                    $subject = "New Donation Received";
+                    $message = "
 A new donation has been received:
 
 Name: $name
@@ -50,14 +47,14 @@ Amount: $$amount
 Recurring: $recurring
 ";
 
-$headers = "From: info@nga.ac.rw\r\n";
-$headers .= "Reply-To: $email\r\n";
+                    $headers = "From: info@nga.ac.rw\r\n";
+                    $headers .= "Reply-To: $email\r\n";
 
-mail($to, $subject, $message, $headers);
+                    mail($to, $subject, $message, $headers);
 
-// Send confirmation email to donor
-$donor_subject = "Thank you for your donation!";
-$donor_message = "
+                    // Send confirmation email to donor
+                    $donor_subject = "Thank you for your donation!";
+                    $donor_message = "
 Dear $name,
 
 Thank you for your generous donation of $$amount.
@@ -66,13 +63,20 @@ Best regards,
 NGA Rwanda
 ";
 
-$donor_headers = "From: info@nga.ac.rw\r\n";
-mail($email, $donor_subject, $donor_message, $donor_headers);
+                    $donor_headers = "From: info@nga.ac.rw\r\n";
+                    mail($email, $donor_subject, $donor_message, $donor_headers);
 
-$success = "Thank you, $name! Your donation of $$amount has been recorded successfully.";
-
-        } catch(PDOException $e) {
-            $error = "Database error: " . $e->getMessage();
+                    $success = "Thank you, $name! Your donation of $$amount has been recorded successfully.";
+                } else {
+                    $error = "Database execution error: " . $stmt->error;
+                }
+                
+                $stmt->close();
+            } else {
+                $error = "Database preparation error: " . $conn->error;
+            }
+        } else {
+            $error = "Database connection not found. Make sure db.php is included.";
         }
     }
 }
