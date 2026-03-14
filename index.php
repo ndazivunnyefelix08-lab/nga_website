@@ -490,7 +490,7 @@ if (isset($conn) && is_object($conn)) {
 	
 	
      <h3 class="fantastic-heading">
-    <span class="sk-text-highlight">Transformative</span><br>
+    Transformative<br>
     Education, Endless<br>
     Opportunities.
 </h3>
@@ -693,43 +693,7 @@ if (isset($conn) && is_object($conn)) {
     </div>
 </section>
 
-<?php
-// Note: We leave this specific DB connection as it was, but gracefully check it
-//$history_conn = mysqli_connect("localhost", "root", "", "nga_deployment");
-$data = [];
-if($history_conn) {
-    $result = mysqli_query($history_conn, "SELECT * FROM students_history LIMIT 3");
-    if($result) $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
-?>
-<?php if(count($data) > 0): ?>
-<section class="py-5" style="background: var(--sk-bg-gray);" id="student-histories">
-    <div class="container py-5">
-        <div data-aos="fade-up">
-            <span class="sk-subtitle text-center">OUR PRIDE</span>
-            <h2 class="sk-title text-center mb-5">Student Stories</h2>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <?php 
-            $student_delay = 100;
-            foreach ($data as $student): 
-            ?>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="<?= $student_delay ?>">
-                <div class="bg-white p-4 border rounded-1 d-flex align-items-center gap-4 shadow-sm h-100">
-                    <img src="uploads/<?= htmlspecialchars($student['photo']); ?>" alt="Student" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover;">
-                    <div>
-                        <h6 class="mb-1 text-dark" style="font-weight: 700; font-size:1.1rem;"><?= htmlspecialchars($student['full_name']); ?></h6>
-                        <a href="student-stories.php?id=<?= $student['id']; ?>" class="small text-decoration-none fw-bold" style="color: var(--sk-orange);">Read story &rarr;</a>
-                    </div>
-                </div>
-            </div>
-            <?php 
-            $student_delay += 150;
-            endforeach; 
-            ?>
-        </div>
-    </div>
-</section>
+
 <?php endif; ?>
 
 <section class="py-5 bg-white border-top w-100" id="partners">
