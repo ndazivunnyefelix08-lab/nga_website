@@ -659,7 +659,7 @@ if (isset($conn) && is_object($conn)) {
 
 <?php
 // Note: We leave this specific DB connection as it was, but gracefully check it
-$history_conn = mysqli_connect("localhost", "root", "", "nga_deployment");
+//$history_conn = mysqli_connect("localhost", "root", "", "nga_deployment");
 $data = [];
 if($history_conn) {
     $result = mysqli_query($history_conn, "SELECT * FROM students_history LIMIT 3");
