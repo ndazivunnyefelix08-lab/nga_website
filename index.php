@@ -459,7 +459,7 @@ if (isset($conn) && is_object($conn)) {
     <div class="hero-overlay"></div>
     
     <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
-        <h5><span class="sk-text-highlight">Transformative</span><br>Education, Endless<br>Opportunities.</h5>
+        <h3><span class="sk-text-highlight">Transformative</span><br>Education, Endless<br>Opportunities.</h3>
         <p><?= htmlspecialchars($settings['hero_subtitle'] ?? 'Rwanda’s Private Centre of Excellence in Software Programming, Embedded Systems & Robotics'); ?></p>
     </div>
     
