@@ -1,6 +1,6 @@
 <?php
-$host = "web.c4r4q0g4u6vz.us-east-1.rds.amazonaws.com";
-$user = "admin";
+$host = "172.31.92.156";
+$user = "web";
 $password = "nga12345";
 $database = "mysql";
 $port = 3306;
