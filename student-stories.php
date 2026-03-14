@@ -1,6 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "ngarw_spes", "ngarw_spes", "ngarw_spes");
-if (!$conn) die("Connection failed");
+// Include your secure AWS database connection
+include 'config/db.php';
 
 /* Validate ID */
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -63,28 +63,24 @@ if (!$student) {
 
 <div class="uk-container uk-margin-large-top">
 
-<!-- BACK BUTTON -->
 <a href="./" class="uk-button uk-button-text">
 ← Back to Histories
 </a>
 
-<!-- STORY CARD -->
 <div class="uk-flex uk-flex-center uk-margin-large-top">
 
 <div class="uk-card uk-card-default uk-card-body 
             uk-box-shadow-large uk-border-rounded
             uk-animation-slide-bottom-small story-wrapper">
 
-<!-- PHOTO -->
 <?php if (!empty($student['photo'])): ?>
 <div class="uk-text-center uk-margin-medium-bottom">
-<img src="../uploads/<?= $student['photo']; ?>" 
+<img src="../uploads/<?= htmlspecialchars($student['photo']); ?>" 
      class="uk-border-circle uk-box-shadow-medium"
      width="150" height="150" alt="Student Photo">
 </div>
 <?php endif; ?>
 
-<!-- NAME -->
 <h2 class="uk-text-center uk-margin-remove-bottom">
 <?= htmlspecialchars($student['full_name']); ?>
 </h2>
@@ -94,8 +90,6 @@ Student Story
 </p>
 
 <hr class="uk-divider-icon">
-
-<!-- FULL STORY (READABLE) -->
 
 <div class="story-text">
 <?= nl2br(htmlspecialchars($student['summary'])); ?>
